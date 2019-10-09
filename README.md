@@ -1,6 +1,5 @@
 ## SoundClout Active Display Module
-#### *Active Display module for SoundClout based off of the `Hack Reactor @Galvanize` curriculum*
-
+### *Active Display module for SoundClout based off of the `Hack Reactor @ Galvanize` Software Engineering Immersive curriculum*
 ---
 
 ### Related Projects/Modules
@@ -12,7 +11,7 @@
 This repository contains the implementation of the Active Player module for `SoundClout`, a semi-static replication of `SoundCloud`'s display page for individual songs. Active Display is a replication of the center-front module which displays the selected song's music player, timestamped comments, album artwork, and more. For a full feature list view the below section called 'Feature Set'.
 
 ### Getting Started
-In order to effectively run this module users will need to ensure that the proper dependendencies are installed on the machine running the server chosen to host this repositories files. This can easily be achieved through the utilization of npm, yarn, or any other package manager. Sample code for npm is included below:
+In order to effectively run this module users will need to ensure that the proper dependencies are installed on the machine running the server chosen to host this repository's files. This can easily be achieved through the utilization of npm, yarn, or any other package manager. Sample code for npm is included below:
 ```sh
 $ npm install
 ```
