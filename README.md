@@ -4,9 +4,10 @@
 ---
 
 ### Related Projects/Modules
- - [Information and Comments Module](https://github.com/4-ever-young/soundclout-info-comments-module.git)
+ - [Active Display Module (This Module)](https://github.com/4-ever-young/soundclout-active-display-module.git)
  - [Active Player Module](https://github.com/4-ever-young/soundclout-active-player-module.git)
- - [Sidebar Module](https://github.com/4-ever-young/Sidebar-module.git)
+ - [Information and Comments Module](https://github.com/4-ever-young/soundclout-info-comments-module.git)
+ - [Sidebar Module](https://github.com/4-ever-young/soundclout-sidebar-module.git)
 
 This repository contains the implementation of the Active Player module for `SoundClout`, a semi-static replication of `SoundCloud`'s display page for individual songs. Active Display is a replication of the center-front module which displays the selected song's music player, timestamped comments, album artwork, and more. For a full feature list view the below section called 'Feature Set'.
 
