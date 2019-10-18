@@ -7,8 +7,8 @@ const idGenerator = (baseId) => {
   }
   return (Math.floor(Math.random() * 10000000).toString()).concat(baseIdWithLeadingZeros);
 };
-const artistGenerator = () => faker.name.firstName.concat(' ', faker.name.lastName);
-const titleGenerator = () => faker.commerce.color.concat(' ', faker.hacker.noun);
+const artistGenerator = () => faker.name.firstName().concat(' ', faker.name.lastName());
+const titleGenerator = () => faker.commerce.color().concat(' ', faker.hacker.noun());
 const artworkGenerator = () => faker.image.image();
 const postingGenerator = () => faker.date.between('01-01-2014', '10-10-2019');
 const tagGenerator = () => {
@@ -50,7 +50,6 @@ module.exports = {
   artistGenerator,
   titleGenerator,
   artworkGenerator,
-  backgroundGenerator,
   postingGenerator,
   tagGenerator,
   waveformGenerator,
