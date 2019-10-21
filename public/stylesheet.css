@@ -2,10 +2,12 @@
   font-family: 'Dosis Extra Light';
   src: url('http://127.0.0.1:3050/fonts/dosis.extralight.ttf');
 }
+
 @font-face {
   font-family: 'Dosis Light';
   src: url('http://127.0.0.1:3050/fonts/dosis.light.ttf');
 }
+
 @font-face {
   font-family: 'Dosis Book';
   src: url('http://127.0.0.1:3050/fonts/dosis.book.ttf');
@@ -21,30 +23,39 @@ body, html {
   text-align: center;
   vertical-align: middle;
   background-color: whitesmoke;
+  /* background-color: orange; */
   overflow: scroll;
 }
+
 #app {
   width: 94%;
   height: 340px;
   margin-left: auto;
   margin-right: auto;
   padding: 20px;
-  position: relative;
-  background-image: linear-gradient(45deg,rgb(97, 13, 13),rgb(78, 48, 150));
+  position: absolute;
+  top: 0px;
+  left: 1.5%;
+  right: 1.5%;
+  background-image: linear-gradient(45deg, rgb(97, 13, 13), rgb(78, 48, 150));
 }
+
 #display-none {
   display: none;
 }
+
 #display-play-button {
   background-image: url('http://127.0.0.1:3050/images/play.png');
   background-position: center right 10px;
   background-size: 30px 30px;
 }
+
 #display-pause-button {
   background-image: url('http://127.0.0.1:3050/images/pause.png');
   background-position: center;
   background-size: 50px 50px;
 }
+
 .play-pause-button {
   position: absolute;
   left: 35px;
@@ -52,48 +63,57 @@ body, html {
   width: 55px;
   height: 55px;
   margin-top: 10px;
-  background-color:rgb(255, 80, 0);
+  background-color: rgb(255, 80, 0);
   background-repeat: no-repeat;
 }
+
 .play-pause-button:hover {
   background-color: rgb(255, 55, 0);
   cursor: pointer;
 }
+
 table {
   display: inline-table;
   width: max-content;
 }
+
 #song-info-table {
   position: absolute;
   left: 100px;
 }
+
 #song-meta-table {
   position: absolute;
   right: 380px;
 }
+
 .text {
   padding-left: 7px;
   padding-right: 7px;
   font-size: 16px;
   background-color: rgb(20, 20, 20);
 }
+
 #artist {
   width: fit-content;
   color: lightgrey;
   margin-top: 5px;
   padding-bottom: 3px;
 }
+
 #song-name {
   width: max-content;
   height: 30px;
   padding-bottom: 6px;
   font-size: 24px;
 }
+
 #post-date {
   height: 20px;
   margin-top: 5px;
-  background-color:rgba(170, 170, 170, 0);
+  background-color: rgba(170, 170, 170, 0);
 }
+
 #tag {
   width: max-content;
   height: 18px;
@@ -104,38 +124,104 @@ table {
   background-color: rgb(153, 153, 153);
   border-radius: 20px;
 }
+
 #artist:hover {
   cursor: pointer;
   color: white;
 }
+
 #tag:hover {
   cursor: pointer;
   background-color: rgb(102, 102, 102);
 }
-#album-artwork {
+
+#album-artwork, #popout-album-artwork {
   width: 340px;
   height: 340px;
+  background-image: linear-gradient(125deg, rgb(66, 175, 3, 0.6), rgb(36, 2, 2, 0.3)), linear-gradient(90deg, rgb(145, 110, 110, 0.3), rgb(87, 90, 253, 0.8));
+}
+#album-artwork {
   position: absolute;
   right: 20px;
-  background-image: linear-gradient(125deg, rgb(66, 175, 3, 0.6), rgb(36, 2, 2, 0.3)),
-                    linear-gradient(90deg, rgb(145, 110, 110, 0.3), rgb(87, 90, 253, 0.8));
 }
+
 #album-artwork:hover {
   cursor: pointer;
 }
+
+.hidden {
+  display: none;
+}
+
+#popout-album-artwork {
+  position: relative;
+}
+
+#popout-artwork-window {
+  z-index: 500;
+  width: 100vw;
+  height: 100vw;
+  position: absolute;
+  top: 0px;
+  left: -1.5%;
+  background-color: rgba(245, 245, 245, 0.9);
+}
+
+#x-to-closeout {
+  position: absolute;
+  height: max-content;
+  width: max-content;
+  font-size: 30px;
+  color: rgb(20, 20, 20);
+  top: 0px;
+  right: 10px;
+}
+
+#x-to-closeout:hover {
+  cursor: pointer;
+}
+
+#popout-artwork-window #popout-info-pane {
+  z-index: 501;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 75px;
+  height: max-content;
+  width: max-content;
+  padding: 25px;
+  padding-top: 5px;
+  color: rgb(20, 20, 20);
+  background-color: white;
+  overflow: visible;
+  white-space: normal;
+}
+
+#popout-info-pane h1 {
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 7px;
+  width: 100%;
+  font-size: 24px;
+  text-align: start;
+  border-bottom: 1px solid whitesmoke;
+}
+
 #waveform, #waveform-mirror, #waveform-divider, #comment-block {
   width: 820px;
 }
+
 #waveform {
   height: 125px;
   position: absolute;
   left: 35px;
   bottom: 60px;
 }
+
 #waveform:hover {
   cursor: pointer;
   filter: brightness(115%);
 }
+
 #waveform-mirror {
   height: 50px;
   position: absolute;
@@ -144,6 +230,7 @@ table {
   transform: scaleY(-1);
   opacity: 0.8;
 }
+
 #waveform-divider {
   height: 1px;
   position: absolute;
@@ -151,6 +238,7 @@ table {
   bottom: 59px;
   background-color: rgb(136, 136, 136);
 }
+
 #comment-block {
   display: flex;
   flex: none;
@@ -165,22 +253,27 @@ table {
   padding: 0px;
   height: 35px;
 }
+
 .comment-container {
   position: absolute;
   top: 0px;
 }
+
 .comment {
   position: relative;
 }
+
 .comment img {
   position: absolute;
   top: 0px;
   width: 20px;
   height: 20px;
 }
+
 .comment .hidden {
   display: none;
 }
+
 .comment-comment-container {
   position: absolute;
   top: 20px;
@@ -189,13 +282,16 @@ table {
   overflow: visible;
   text-align: start;
 }
+
 .comment-username {
   display: contents;
   margin-right: 7px;
 }
+
 .space {
   opacity: 0;
 }
+
 .comment-text {
   display: contents;
   padding-left: 3px;
@@ -203,6 +299,7 @@ table {
   white-space: nowrap;
   color: white;
 }
+
 #current-timestamp, #song-length {
   position: absolute;
   bottom: 60px;
@@ -215,10 +312,12 @@ table {
   padding-bottom: 2px;
   background-color: rgb(20, 20, 20);
 }
+
 #current-timestamp {
   left: 35px;
   color: rgb(255, 80, 0);
 }
+
 #song-length {
   right: 389px;
   color: rgb(136, 136, 136);

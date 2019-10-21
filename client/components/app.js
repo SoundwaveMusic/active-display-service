@@ -20,7 +20,7 @@ export default class App extends React.Component {
   }
   startPlayTimer() {
     const intervalId = setInterval((() => {
-      this.setState((state) => { return { currentTimestamp: (state.currentTimestamp + 1) }});
+      this.setState((state) => { return { currentTimestamp: (state.currentTimestamp + 1) } });
     }).bind(this), 1000);
     this.setState({ currentIntervalId: intervalId });
   }
@@ -32,6 +32,16 @@ export default class App extends React.Component {
   }
   goToPopularTracksForTag({ target }) {
     alert(`This would send you to the Most Popular Tracks for ${target.innerHTML} page`);
+  }
+  popoutArtworkWindow({ target }) {
+    // console.dir(document.getElementById('app'));
+    // document.getElementById('app').style.setProperty('filter', 'grayscale(100%)');
+    target.nextSibling.classList.remove('hidden');
+  }
+  closeArtworkWindow({ target }) {
+    // console.dir(target);
+    // document.getElementById('app').style.setProperty('filter', 'none');
+    target.parentNode.classList.add('hidden');
   }
 
   render() {
@@ -55,7 +65,14 @@ export default class App extends React.Component {
             </tr>
           </tbody>
         </table>
-        <img src={this.props.songData.artwork} id="album-artwork"/>
+        <img src={this.props.songData.artwork} id="album-artwork" onClick={(event) => this.popoutArtworkWindow(event)} />
+        <div id="popout-artwork-window" className="hidden">
+          <div id="x-to-closeout" onClick={(event) => this.closeArtworkWindow(event)}>x</div>
+          <div id="popout-info-pane">
+            <h1>{this.props.songData.title}</h1>
+            <img src={this.props.songData.artwork} id="popout-album-artwork" />
+          </div>
+        </div>
         <table id="song-meta-table">
           <tbody>
             <tr>
