@@ -1,6 +1,6 @@
 import React from 'react';
 
-class WaveformPlayer extends React.Component {
+export default class WaveformPlayer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -18,11 +18,10 @@ class WaveformPlayer extends React.Component {
   render() {
     return (
       <>
+        <img src={this.props.songData.waveform} id="waveform"/>
         <div id="current-timestamp">{this.changeTimeToMinutesAndSeconds(this.props.timestamp)}</div>
-        <div id="waveform"></div>
-        <div id="song-length">{this.changeTimeToMinutesAndSeconds(this.props.songLength)}</div>
+        <div id="song-length">{this.changeTimeToMinutesAndSeconds(this.props.songData.lengthInSeconds)}</div>
       </>
     );
   }
-}
-export default WaveformPlayer;
+};

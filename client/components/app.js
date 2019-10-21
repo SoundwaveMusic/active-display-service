@@ -2,11 +2,12 @@ import React from 'react';
 import WaveformPlayer from './waveformPlayer.js'
 
 
-class App extends React.Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       playClicked: false,
+      currentTimestamp: props.songData.currentTimestampInSeconds,
     };
   }
 
@@ -40,7 +41,7 @@ class App extends React.Component {
             </tr>
           </tbody>
         </table>
-        <img src={this.props.songData.artwork} id="album-artwork"></img>
+        <img src={this.props.songData.artwork} id="album-artwork"/>
         <table id="song-meta-table">
           <tbody>
             <tr>
@@ -51,10 +52,8 @@ class App extends React.Component {
             </tr>
           </tbody>
         </table>
-        <WaveformPlayer timestamp={this.props.songData.currentTimestampInSeconds} songLength={this.props.songData.lengthInSeconds} />
+        <WaveformPlayer songData={this.props.songData} timestamp={this.state.currentTimestamp} />
       </>
     );
   }
 };
-
-export default App;
