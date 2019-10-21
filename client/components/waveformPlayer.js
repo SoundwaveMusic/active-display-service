@@ -24,7 +24,7 @@ export default class WaveformPlayer extends React.Component {
         <ul id="comment-block">
           {this.props.songData.comments.map((comment, commentIndex) => {
             return (
-              <li key={commentIndex}>
+              <li key={commentIndex} className="content-container">
                 <Comment comment={comment} zIndex={commentIndex} />
               </li>
             );

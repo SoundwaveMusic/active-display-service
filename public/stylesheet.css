@@ -126,7 +126,7 @@ table {
 #waveform, #waveform-mirror, #waveform-divider, #comment-block {
   width: 820px;
 }
-#waveform, #waveform-mirror {
+#waveform {
   height: 125px;
   position: absolute;
   left: 35px;
@@ -136,7 +136,10 @@ table {
   cursor: pointer;
 }
 #waveform-mirror {
-  bottom: -65px;
+  height: 50px;
+  position: absolute;
+  left: 35px;
+  bottom: 10px;
   transform: scaleY(-1);
   opacity: 0.8;
 }
@@ -148,30 +151,57 @@ table {
   background-color: rgb(136, 136, 136);
 }
 #comment-block {
-  display: inline-flex;
+  display: flex;
   flex: none;
+  flex-wrap: nowrap;
   justify-content: space-evenly;
   color: orangered;
   list-style: none;
-}
-#comment-block {
   position: absolute;
   left: 35px;
-  bottom: 40px;
+  bottom: 24px;
   margin: 0px;
   padding: 0px;
+  height: 35px;
+}
+.comment-container {
+  position: absolute;
+  top: 0px;
 }
 .comment {
   position: relative;
 }
 .comment img {
-  width: 15px;
-  height: 15px;
+  position: absolute;
+  top: 0px;
+  width: 20px;
+  height: 20px;
 }
-.hidden {
+.comment .hidden {
   display: none;
 }
-
+.comment-comment-container {
+  position: absolute;
+  top: 20px;
+  font-size: 12px;
+  margin-top: 7px;
+  overflow: visible;
+  text-align: start;
+}
+.comment-username {
+  display: contents;
+  margin-right: 7px;
+}
+.space {
+  opacity: 0;
+}
+.comment-text {
+  display: contents;
+  padding-left: 3px;
+  overflow: hidden;
+  white-space: nowrap;
+  color: white;
+}
 #current-timestamp, #song-length {
   position: absolute;
   bottom: 60px;
