@@ -134,6 +134,7 @@ table {
 }
 #waveform:hover {
   cursor: pointer;
+  filter: brightness(115%);
 }
 #waveform-mirror {
   height: 50px;

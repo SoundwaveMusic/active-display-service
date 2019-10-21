@@ -8,6 +8,7 @@ export default class App extends React.Component {
     this.state = {
       playClicked: false,
       currentTimestamp: props.songData.currentTimestampInSeconds,
+      currentIntervalId: 0,
     };
   }
 
@@ -17,7 +18,15 @@ export default class App extends React.Component {
     target.id = "display-none";
     this.setState((state) => ({ playClicked: !state.playClicked }));
   }
-
+  startPlayTimer() {
+    const intervalId = setInterval((() => {
+      this.setState((state) => { return { currentTimestamp: (state.currentTimestamp + 1) }});
+    }).bind(this), 1000);
+    this.setState({ currentIntervalId: intervalId });
+  }
+  stopPlayTimer() {
+    clearInterval(this.state.currentIntervalId);
+  }
   goToArtistPage({ target }) {
     alert(`This would send you to the profile page for ${target.innerHTML}`);
   }
@@ -26,11 +35,16 @@ export default class App extends React.Component {
   }
 
   render() {
-    console.dir(this.props);
     return (
       <>
-        <div id="display-play-button" className="play-pause-button" onClick={(event) => this.changePlayPauseButton(event)}></div>
-        <div id="display-none" className="play-pause-button" onClick={(event) => this.changePlayPauseButton(event)}></div>
+        <div id="display-play-button" className="play-pause-button" onClick={(event) => {
+          this.changePlayPauseButton(event);
+          this.startPlayTimer();
+        }}></div>
+        <div id="display-none" className="play-pause-button" onClick={(event) => {
+          this.changePlayPauseButton(event);
+          this.stopPlayTimer();
+        }}></div>
         <table id="song-info-table">
           <tbody>
             <tr>
