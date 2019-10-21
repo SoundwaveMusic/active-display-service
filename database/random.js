@@ -61,7 +61,7 @@ const lengthInSecondsGenerator = () => {
 const currentTimestampGenerator = () => 0;
 const commentsGenerator = (songLength) => {
   const allNewComments = [];
-  for (let i = 0; i < songLength; i += 1) {
+  for (let i = 0; i < songLength; i += 20) {
     const newComment = {
       username: faker.internet.userName(),
       avatar: faker.internet.avatar(),
