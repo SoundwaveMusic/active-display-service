@@ -27,7 +27,7 @@ body, html {
   overflow: scroll;
 }
 
-#app {
+#Display {
   width: 94%;
   height: 340px;
   margin-left: auto;

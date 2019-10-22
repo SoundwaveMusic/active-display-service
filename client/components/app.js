@@ -33,6 +33,35 @@ export default class App extends React.Component {
   goToPopularTracksForTag({ target }) {
     alert(`This would send you to the Most Popular Tracks for ${target.innerHTML} page`);
   }
+  changePostDateToString(date) {
+    const releaseText = {
+      0: ' minutes ago',
+      1: ' hours ago',
+      2: ' days ago',
+      3: ' weeks ago',
+      4: ' months ago',
+      5: ' years ago',
+    };
+    const releaseTime = [];
+    const parsedDate = Date.parse(date);
+    const timeAgoInMilliseconds = (Date.now() - parsedDate);
+    const timeAgoInMinutes = timeAgoInMilliseconds/1000/60;
+    releaseTime.push(timeAgoInMinutes);
+    const timeAgoInHours = Math.floor(timeAgoInMinutes/60);
+    releaseTime.push(timeAgoInHours);
+    const timeAgoInDays = Math.floor(timeAgoInHours/24);
+    releaseTime.push(timeAgoInDays);
+    const timeAgoInWeeks = Math.floor(timeAgoInDays/7);
+    releaseTime.push(timeAgoInWeeks);
+    const timeAgoInMonths = Math.floor(timeAgoInWeeks/4);
+    releaseTime.push(timeAgoInMonths);
+    const timeAgoInYears = Math.floor(timeAgoInMonths/12);
+    releaseTime.push(timeAgoInYears);
+
+    for (let i = releaseTime.length - 1; i >= 0; i -= 1) {
+      if (releaseTime[i] > 0) return (releaseTime[i].toString()).concat(releaseText[i]);
+    }
+  }
   popoutArtworkWindow({ target }) {
     // console.dir(document.getElementById('app'));
     // document.getElementById('app').style.setProperty('filter', 'grayscale(100%)');
@@ -76,7 +105,7 @@ export default class App extends React.Component {
         <table id="song-meta-table">
           <tbody>
             <tr>
-              <td><div id="post-date" className="text">3 years ago</div></td>
+              <td><div id="post-date" className="text">{this.changePostDateToString(this.props.songData.postingDate)}</div></td>
             </tr>
             <tr>
               <td><div id="tag" className="text" onClick={(event) => this.goToPopularTracksForTag(event)}>{this.props.songData.tag}</div></td>
