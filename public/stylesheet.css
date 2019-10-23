@@ -20,15 +20,13 @@ body, html {
   color: white;
   font-family: 'Dosis Book', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-weight: 50%;
-  text-align: center;
   vertical-align: middle;
   background-color: whitesmoke;
-  /* background-color: orange; */
   overflow: scroll;
 }
 
 #Display {
-  width: 94%;
+  width: 1200px;
   height: 340px;
   margin-left: auto;
   margin-right: auto;
