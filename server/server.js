@@ -15,14 +15,14 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
-app.get('/', (_, response) => {
+app.get('/', (request, response) => {
   expressStaticGzip('/', {
     enableBrotli: true,
     orderPreference: ['br', 'gz'],
-    setHeaders: (res, _) => {
-      res.setHeader("Cache-Control", "public, max-age=31536000");
+    setHeaders: (res) => {
+      res.setHeader('Cache-Control', 'public, max-age=31536000');
     },
-  // });
+  });
   // response.send(express.static(__dirname, '..', 'public', 'index.html'));
 });
 
