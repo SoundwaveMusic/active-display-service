@@ -1,16 +1,19 @@
 @font-face {
   font-family: 'Dosis Extra Light';
   src: url('http://ec2-13-56-149-18.us-west-1.compute.amazonaws.com/fonts/dosis.extralight.ttf');
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Dosis Light';
   src: url('http://ec2-13-56-149-18.us-west-1.compute.amazonaws.com/fonts/dosis.light.ttf');
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Dosis Book';
   src: url('http://ec2-13-56-149-18.us-west-1.compute.amazonaws.com/fonts/dosis.book.ttf');
+  font-display: swap;
 }
 
 body, html {
