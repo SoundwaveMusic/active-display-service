@@ -36,7 +36,7 @@ const artworkGenerator = (iterator) => {
     '16.jpg',
   ];
   // const randomSelection = Math.floor(Math.random() * 16);
-  return `http://127.0.0.1:3050/images/artwork-${tagOptions[iterator]}`;
+  return `http://ec2-13-56-149-18.us-west-1.compute.amazonaws.com/images/artwork-${tagOptions[iterator]}`;
 };
 const postingGenerator = () => faker.date.between('01-01-2014', '10-10-2019');
 const tagGenerator = () => {
@@ -47,7 +47,7 @@ const tagGenerator = () => {
 const waveformGenerator = () => {
   const waveformOptions = ['waveform-1', 'waveform-2', 'waveform-3', 'waveform-4'];
   const randomSelection = Math.floor(Math.random() * 4);
-  return `http://127.0.0.1:3050/images/${waveformOptions[randomSelection]}.svg`;
+  return `http://ec2-13-56-149-18.us-west-1.compute.amazonaws.com/images/${waveformOptions[randomSelection]}.svg`;
 };
 const lengthInSecondsGenerator = () => {
   const lengthLimits = {

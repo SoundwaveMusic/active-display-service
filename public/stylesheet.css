@@ -1,16 +1,16 @@
 @font-face {
   font-family: 'Dosis Extra Light';
-  src: url('http://127.0.0.1:3050/fonts/dosis.extralight.ttf');
+  src: url('http://ec2-13-56-149-18.us-west-1.compute.amazonaws.com/fonts/dosis.extralight.ttf');
 }
 
 @font-face {
   font-family: 'Dosis Light';
-  src: url('http://127.0.0.1:3050/fonts/dosis.light.ttf');
+  src: url('http://ec2-13-56-149-18.us-west-1.compute.amazonaws.com/fonts/dosis.light.ttf');
 }
 
 @font-face {
   font-family: 'Dosis Book';
-  src: url('http://127.0.0.1:3050/fonts/dosis.book.ttf');
+  src: url('http://ec2-13-56-149-18.us-west-1.compute.amazonaws.com/fonts/dosis.book.ttf');
 }
 
 body, html {
@@ -43,13 +43,13 @@ body, html {
 }
 
 #display-play-button {
-  background-image: url('http://127.0.0.1:3050/images/play.png');
+  background-image: url('http://ec2-13-56-149-18.us-west-1.compute.amazonaws.com/images/play.png');
   background-position: center right 10px;
   background-size: 30px 30px;
 }
 
 #display-pause-button {
-  background-image: url('http://127.0.0.1:3050/images/pause.png');
+  background-image: url('http://ec2-13-56-149-18.us-west-1.compute.amazonaws.com/images/pause.png');
   background-position: center;
   background-size: 50px 50px;
 }
