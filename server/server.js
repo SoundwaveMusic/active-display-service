@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
+const expressStaticGzip = require('express-static-gzip');
 const router = require('./routes/router.js');
 
 const app = express();
@@ -15,7 +16,14 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.get('/', (_, response) => {
-  response.send(express.static(__dirname, '..', 'public', 'index.html'));
+  expressStaticGzip('/', {
+    enableBrotli: true,
+    orderPreference: ['br', 'gz'],
+    setHeaders: (res, _) => {
+      res.setHeader("Cache-Control", "public, max-age=31536000");
+    },
+  // });
+  // response.send(express.static(__dirname, '..', 'public', 'index.html'));
 });
 
 // Finds a /########## string, where # => any digit
