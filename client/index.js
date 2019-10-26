@@ -7,7 +7,7 @@ let newRandomId = '000'.concat(Math.floor(Math.random() * 16)).slice(-3);
 
 $.ajax({
   method: "GET",
-  url: `http://127.0.0.1:3050/4500000${newRandomId}`,
+  url: `http://ec2-13-56-149-18.us-west-1.compute.amazonaws.com/4500000${newRandomId}`,
   success: (songData) => {
     ReactDOM.render(<Display songData={songData[0]}/>, document.getElementById('Display'));
   },
