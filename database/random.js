@@ -61,15 +61,25 @@ const lengthInSecondsGenerator = () => {
 const currentTimestampGenerator = () => 0;
 const commentsGenerator = (songLength) => {
   const allNewComments = [];
-  for (let i = 0; i < songLength; i += 20) {
+  const numOfComments = faker.random.number({ min: 1, max: 6 });
+  for (let i = 0; i <= numOfComments; i += 1) {
     const newComment = {
       username: faker.internet.userName(),
       avatar: faker.internet.avatar(),
       text: faker.lorem.sentence(),
-      timestampInSeconds: Math.floor(Math.random() * songLength),
+      timestampInSeconds: faker.random.number({ min: 10, max: songLength }),
     };
     allNewComments.push(newComment);
   }
+  // for (let i = 0; i < songLength && allNewComments.length < 5; i += 20) {
+  //   const newComment = {
+  //     username: faker.internet.userName(),
+  //     avatar: faker.internet.avatar(),
+  //     text: faker.lorem.sentence(),
+  //     timestampInSeconds: Math.floor(Math.random() * songLength),
+  //   };
+  //   allNewComments.push(newComment);
+  // }
   return allNewComments;
 };
 

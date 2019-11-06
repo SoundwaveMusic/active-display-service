@@ -5,9 +5,12 @@ import Display from './components/app.js';
 
 let newRandomId = '000'.concat(Math.floor(Math.random() * 16)).slice(-3);
 
+const url = `/4500000${newRandomId}`;
+console.log(url);
+
 $.ajax({
   method: "GET",
-  url: `http://ec2-13-56-149-18.us-west-1.compute.amazonaws.com/4500000${newRandomId}`,
+  url: url,
   success: (songData) => {
     ReactDOM.render(<Display songData={songData[0]}/>, document.getElementById('Display'));
   },
