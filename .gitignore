@@ -5,3 +5,4 @@ package-lock.json
 *.csv
 *.xlsx
 videoNotes.md
+old-server/

@@ -7,17 +7,19 @@
 -- READ TEST
 
 explain (analyze,buffers)
-SELECT *
-FROM songs
+SELECT * FROM songs
 LEFT JOIN comments
 ON songs.id = comments.songid
 WHERE songs.id = 6843213;
+
+"SELECT * FROM songs LEFT JOIN comments ON songs.id = comments.songid WHERE songs.id = 6843213"
 
 -- INSERT TEST
 
 explain (analyze,buffers)
 INSERT INTO comments(songid, username, avatar, comment, commenttimestampinseconds)
-VALUES (9900001, 'thomasij813', 'http://www.url.com', 'this is a comment', 5);
+VALUES (9900001, 'thomasij813', 'http://www.url.com', 'this is a comment', 5)
+RETURNING *;
 
 -- UPDATE TEST
 
