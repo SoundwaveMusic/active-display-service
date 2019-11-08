@@ -18,21 +18,26 @@ export default class App extends React.Component {
     target.id = "display-none";
     this.setState((state) => ({ playClicked: !state.playClicked }));
   }
+
   startPlayTimer() {
     const intervalId = setInterval((() => {
       this.setState((state) => { return { currentTimestamp: (state.currentTimestamp + 1) } });
     }).bind(this), 1000);
     this.setState({ currentIntervalId: intervalId });
   }
+
   stopPlayTimer() {
     clearInterval(this.state.currentIntervalId);
   }
+
   goToArtistPage({ target }) {
     alert(`This would send you to the profile page for ${target.innerHTML}`);
   }
+
   goToPopularTracksForTag({ target }) {
     alert(`This would send you to the Most Popular Tracks for ${target.innerHTML} page`);
   }
+
   changePostDateToString(date) {
     const releaseText = {
       0: ' minutes ago',
@@ -42,6 +47,7 @@ export default class App extends React.Component {
       4: ' months ago',
       5: ' years ago',
     };
+
     const releaseTime = [];
     const parsedDate = Date.parse(date);
     const timeAgoInMilliseconds = (Date.now() - parsedDate);
