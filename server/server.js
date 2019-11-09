@@ -1,8 +1,12 @@
+require('newrelic');
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
 const expressStaticGzip = require('express-static-gzip');
+// const faker = require('faker');
+
 
 const {
   getCommentsBySongId,
@@ -17,8 +21,8 @@ const port = 3050;
 
 app.use(cors());
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(express.json());
 
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
@@ -32,6 +36,11 @@ app.get('/', (request, response) => {
   });
   // response.send(express.static(__dirname, '..', 'public', 'index.html'));
 });
+
+app.get('/api/song/random', (req, res, next) => {
+  req.params.songId = Math.floor(Math.random() * 10000000);
+  getCommentsBySongId(req, res, next);
+})
 
 app.get('/api/song/:songId/comments/', getCommentsBySongId);
 

@@ -6,3 +6,4 @@ package-lock.json
 *.xlsx
 videoNotes.md
 old-server/
+newrelic.js

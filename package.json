@@ -52,6 +52,7 @@
     "express-static-gzip": "^2.0.5",
     "faker": "^4.1.0",
     "jquery": "^3.4.1",
+    "newrelic": "^6.1.0",
     "pg": "^7.12.1"
   },
   "jest": {
