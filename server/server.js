@@ -50,7 +50,7 @@ app.put('/api/comment/:commentId', updateComment);
 
 app.delete('/api/comment/:commentId', deleteComment);
 
-app.use((err, req, res) => {
+app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send('Something broke!');
 });
