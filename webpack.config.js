@@ -3,6 +3,7 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const BrotliPlugin = require('brotli-webpack-plugin');
 
 module.exports = {
+  mode: 'production',
   entry: './client',
   output: {
     filename: 'bundle.js',

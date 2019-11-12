@@ -7,3 +7,5 @@ package-lock.json
 videoNotes.md
 old-server/
 newrelic.js
+dbConfig.js
+*.log
