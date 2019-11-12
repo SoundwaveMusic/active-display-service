@@ -1,9 +1,0 @@
-config:
-  target: 'http://localhost:3050/api/song/random'
-  phases:
-  - duration: 30
-    arrivalRate: 1000
-scenarios:
-  - flow:
-    - get:
-        url: "/"

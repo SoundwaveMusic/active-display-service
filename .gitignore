@@ -1,11 +1,9 @@
 # NPM
 node_modules/
-package-lock.json
 .DS_Store
 *.csv
 *.xlsx
 videoNotes.md
-old-server/
 newrelic.js
 dbConfig.js
 *.log
