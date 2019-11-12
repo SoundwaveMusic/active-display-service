@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import $ from 'jquery';
 import Display from './components/app.js';
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -34,15 +33,13 @@ const transformSongData = (data) => {
   };
 };
 
-$.ajax({
-  method: "GET",
-  url,
-  success: (responseData) => {
-    const songData = transformSongData(responseData);
-
+fetch(url)
+  .then(response => response.json())
+  .then(data => transformSongData(data))
+  .then(songData => {
     ReactDOM.render(<Display songData={songData}/>, document.getElementById('Display'));
-  },
-  failure: () => {
-    ReactDOM.render(<div><h1>Whoops! There was an error retrieving this song from our database</h1></div>, document.getElementById('Display'));  
-  },
-});
+  })
+  .catch(err => {
+    const errorMessage = 'Whoops! There was an error retrieving this song from our database'
+    ReactDOM.render(<div><h1>{errorMessage}</h1></div>, document.getElementById('Display'));
+  });
