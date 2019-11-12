@@ -4,6 +4,27 @@
 -- POSTGRES --
 --------------
 
+CREATE TABLE comments (
+  id SERIAL,
+  songid INT,
+  username TEXT,
+  avatar TEXT,
+  comment TEXT,
+  commenttimestampinseconds INT
+);
+
+CREATE TABLE songs (
+  id SERIAL,
+  title TEXT,
+  artist TEXT,
+  artwork TEXT,
+  postingdate TEXT,
+  tag TEXT,
+  waveform TEXT,
+  songlength INT,
+  currenttimestamp INT
+);
+
 -- READ TEST
 
 explain (analyze,buffers)
@@ -37,7 +58,7 @@ WHERE id = 44981896;
 -- GET LAST RECORD
 
 SELECT *
-FROM comments
+FROM songs
 ORDER BY id desc
 LIMIT 1;
 

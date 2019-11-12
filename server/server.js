@@ -1,3 +1,5 @@
+require('newrelic');
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -9,7 +11,7 @@ const {
   getCommentById,
   createComment,
   updateComment,
-  deleteComment
+  deleteComment,
 } = require('../database/models/comment.js');
 
 const app = express();
@@ -30,7 +32,12 @@ app.get('/', (request, response) => {
       res.setHeader('Cache-Control', 'public, max-age=31536000');
     },
   });
-  // response.send(express.static(__dirname, '..', 'public', 'index.html'));
+  response.send(express.static(__dirname, '..', 'public', 'index.html'));
+});
+
+app.get('/api/song/random', (req, res, next) => {
+  req.params.songId = Math.floor(Math.random() * 10000000);
+  getCommentsBySongId(req, res, next);
 });
 
 app.get('/api/song/:songId/comments/', getCommentsBySongId);
@@ -43,35 +50,9 @@ app.put('/api/comment/:commentId', updateComment);
 
 app.delete('/api/comment/:commentId', deleteComment);
 
-// Finds a /########## string, where # => any digit
-// app.get(/(?:\/\d{10})(?!.)/, (request, response) => {
-//   router.retrieveSong(request.url.match(/(?:\d{10})/), (song) => {
-//     console.log('The song requested was id: \n', song[0].id);
-//     response.send(song);
-//   });
-// });
-
-// // Finds a /##########/song-play string, where # => any digit
-// app.get(/(?:\/\d{10}\/song-play)(?!.)/, (request, response) => {
-//   router.retrieveSong(request.url.match(/(?:\d{10})/), (song) => {
-//     console.log('The song to play was id: \n', song[0].id);
-//     response.send(song.currentTimestampInSeconds);
-//   });
-// });
-
-// // Finds a /##########/song-pause string, where # => any digit
-// app.post(/(?:\/\d{10}\/song-pause)(?!.)/, (request, response) => {
-//   router.updateSong(request.url.match(/(?:\d{10})/), request.body.newTimestamp, (song) => {
-//     console.log('The song to pause was id: \n', song[0].id);
-//     response.send(song.currentTimestampInSeconds);
-//   });
-// });
-// // Finds a /##########/song-scrub string, where # => any digit
-// app.post(/(?:\/\d{10}\/song-scrub)(?!.)/, (request, response) => {
-//   router.updateSong(request.url.match(/(?:\d{10})/), request.body.newTimestamp, (song) => {
-//     console.log('The song to scrub was id: \n', song[0].id);
-//     response.send(song.currentTimestampInSeconds);
-//   });
-// });
+app.use((err, req, res) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
 
 app.listen(port, () => console.log(`Server is up and running!  \nListening on port ${port}`));
