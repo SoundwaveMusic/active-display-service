@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  active-display-service:
+    build: .
+    ports: 
+      - '3050:3050'
